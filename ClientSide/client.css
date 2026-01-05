@@ -1,0 +1,114 @@
+.main-container {
+    -fx-background-color: #f4f4f4;
+}
+
+.header-box {
+    -fx-background-color: #3498db;
+    -fx-padding: 15;
+    -fx-background-radius: 5;
+}
+
+.title-label {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.status-label {
+    -fx-text-fill: orange;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10;
+    -fx-background-color: white;
+    -fx-background-radius: 3;
+}
+
+.info-grid {
+    -fx-background-color: white;
+    -fx-padding: 15;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5;
+}
+
+.info-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.connection-box {
+    -fx-background-color: #ecf0f1;
+    -fx-padding: 10;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5;
+}
+
+.connection-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.connect-button {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 15;
+    -fx-background-radius: 5;
+}
+
+.connect-button:hover {
+    -fx-background-color: #219653;
+}
+
+.disconnect-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 15;
+    -fx-background-radius: 5;
+}
+
+.disconnect-button:hover {
+    -fx-background-color: #c0392b;
+}
+
+.clear-button {
+    -fx-background-color: #95a5a6;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 15;
+    -fx-background-radius: 5;
+}
+
+.clear-button:hover {
+    -fx-background-color: #7f8c8d;
+}
+
+.section-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 10 0 5 0;
+}
+
+.log-area {
+    -fx-font-family: "Monospace";
+    -fx-font-size: 12px;
+    -fx-background-color: #2c3e50;
+    -fx-text-fill: white;
+    -fx-border-color: #34495e;
+    -fx-border-radius: 5;
+}
+
+.chart {
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5;
+}
+
+.chart-plot-background {
+    -fx-background-color: white;
+}
+
+.chart-series-line {
+    -fx-stroke-width: 2px;
+}

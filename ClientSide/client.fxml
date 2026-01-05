@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="ClientSide.ClientController" spacing="10" styleClass="main-container">
+    
+    <HBox spacing="10" styleClass="header-box">
+        <Label text="Remote Monitoring Client" styleClass="title-label"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label fx:id="statusLabel" text="Disconnected" styleClass="status-label"/>
+    </HBox>
+    
+    <GridPane hgap="10" vgap="10" styleClass="info-grid">
+        <Label text="Hostname:" styleClass="info-label"/>
+        <Label fx:id="hostnameLabel" text="N/A" GridPane.columnIndex="1"/>
+        
+        <Label text="OS:" styleClass="info-label" GridPane.rowIndex="1"/>
+        <Label fx:id="osLabel" text="N/A" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        
+        <Label text="CPU Cores:" styleClass="info-label" GridPane.rowIndex="2"/>
+        <Label fx:id="cpuCoresLabel" text="N/A" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        
+        <Label text="CPU Usage:" styleClass="info-label" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+        <Label fx:id="cpuUsageLabel" text="N/A" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+        
+        <Label text="Memory Usage:" styleClass="info-label" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <Label fx:id="memoryUsageLabel" text="N/A" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+        
+        <Label text="Last Update:" styleClass="info-label" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+        <Label fx:id="timestampLabel" text="N/A" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+        
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT"/>
+            <ColumnConstraints halignment="LEFT"/>
+            <ColumnConstraints halignment="RIGHT"/>
+            <ColumnConstraints halignment="LEFT"/>
+        </columnConstraints>
+    </GridPane>
+    
+    <HBox spacing="10" styleClass="connection-box">
+        <Label text="Server IP:" styleClass="connection-label"/>
+        <TextField fx:id="serverIPField" prefWidth="150"/>
+        <Label text="Port:" styleClass="connection-label"/>
+        <TextField fx:id="serverPortField" prefWidth="80"/>
+        <Button fx:id="connectButton" text="Connect" onAction="#connectToServer" styleClass="connect-button"/>
+        <Button fx:id="disconnectButton" text="Disconnect" onAction="#disconnectFromServer" 
+                styleClass="disconnect-button" disable="true"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Clear Log" onAction="#clearLog" styleClass="clear-button"/>
+    </HBox>
+    
+    <!-- Charts will be added here programmatically -->
+    <HBox fx:id="chartsBox" spacing="10" VBox.vgrow="ALWAYS"/>
+    
+    <Label text="Client Log" styleClass="section-label"/>
+    <TextArea fx:id="logArea" editable="false" prefRowCount="4" styleClass="log-area"/>
+    
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+</VBox>
