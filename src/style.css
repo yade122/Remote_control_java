@@ -1,0 +1,105 @@
+//this is css profile code
+.main-container {
+    -fx-background-color: #f4f4f4;
+}
+
+.header-box {
+    -fx-background-color: #2c3e50;
+    -fx-padding: 15;
+    -fx-background-radius: 5;
+}
+
+.title-label {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.status-label {
+    -fx-text-fill: red;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10;
+    -fx-background-color: white;
+    -fx-background-radius: 3;
+}
+
+.client-count-label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 5 10;
+    -fx-background-color: #3498db;
+    -fx-background-radius: 3;
+}
+
+.start-button {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+}
+
+.start-button:hover {
+    -fx-background-color: #219653;
+}
+
+.stop-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+}
+
+.stop-button:hover {
+    -fx-background-color: #c0392b;
+}
+
+.section-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 10 0 5 0;
+}
+
+.clients-table {
+    -fx-background-color: white;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5;
+}
+
+.clients-table .column-header {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.clients-table .table-row-cell {
+    -fx-border-color: transparent;
+}
+
+.clients-table .table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+.clients-table .table-row-cell:selected {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+.charts-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5;
+}
+
+.log-area {
+    -fx-font-family: "Monospace";
+    -fx-font-size: 12px;
+    -fx-background-color: #2c3e50;
+    -fx-text-fill: white;
+    -fx-border-color: #34495e;
+    -fx-border-radius: 5;
+}
+//this is end of the code
