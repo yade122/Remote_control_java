@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="700" prefWidth="1000" styleClass="border-pane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dillauniversity.controller.LoginController">
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+    
+    <center>
+        <HBox alignment="CENTER" spacing="0">
+            <!-- Left Panel - University Info -->
+            <VBox alignment="CENTER" spacing="20" styleClass="info-panel">
+
+                <!-- Logo and University Name -->
+                <VBox alignment="CENTER" spacing="10" styleClass="logo-container">
+                    <ImageView id="logoImageView" fitHeight="150.0" fitWidth="150.0" preserveRatio="true">
+                        <Image url="@logo.png" />
+                    </ImageView>
+                    <Label styleClass="system-label" text="UNIVERSITY OF THE GREEN LAND" />
+                    <Label styleClass="university-label" text="DILLA UNIVERSITY" />
+                    <Label styleClass="department-label" text="Computer Science Department" />
+                    <Label styleClass="system-label" text="Student Registration System" />
+                </VBox>
+                
+                <!-- System Features -->
+                <VBox spacing="15" styleClass="features-container">
+                    <Label styleClass="feature-title" text="System Features:" />
+                    <Label styleClass="feature-item" text="Student Registration and Login" />
+                    <Label styleClass="feature-item" text="Course Management" />
+                    <Label styleClass="feature-item" text="Attendance Tracking" />
+                    <Label styleClass="feature-item" text="Grade Management" />
+                    <Label styleClass="feature-item" text="Report Generation" />
+                </VBox>
+                
+                <Label styleClass="location-label" text="Dilla, Ethiopia" />
+            </VBox>
+            
+            <!-- Right Panel - Login Form -->
+            <VBox alignment="CENTER" spacing="30" styleClass="login-panel">
+                
+                <VBox alignment="CENTER_LEFT" spacing="10">
+                    <Label styleClass="form-title" text="Secure Login" />
+                    <Label styleClass="form-subtitle" text="Please enter your credentials to access the system" />
+                </VBox>
+                
+                <!-- Login Form -->
+                <VBox spacing="25" styleClass="form-container">
+                    <!-- Username -->
+                    <VBox spacing="8">
+                        <Label styleClass="form-label" text="Username" />
+                        <TextField fx:id="usernameField" promptText="Enter your username" />
+                    </VBox>
+                    
+                    <!-- Password -->
+                    <VBox spacing="8">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="form-label" text="Password" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Hyperlink fx:id="forgotPasswordLink" text="Forgot Password?" />
+                        </HBox>
+                        <PasswordField fx:id="passwordField" promptText="Enter your password" />
+                    </VBox>
+                    
+                    <!-- Role Selection -->
+                    <VBox spacing="8">
+                        <Label styleClass="form-label" text="Select Role" />
+                        <ComboBox fx:id="roleComboBox" />
+                    </VBox>
+                    
+                    <!-- Remember Me -->
+                    <CheckBox fx:id="rememberCheckBox" text="Remember me for 30 days" />
+                    
+                    <!-- Login Button -->
+                    <Button fx:id="loginButton" text="LOGIN TO SYSTEM" />
+                    
+                    <!-- Register Link -->
+                    <HBox alignment="CENTER" spacing="5">
+                        <Label styleClass="footer-main" text="New to Dilla University?" />
+                        <Hyperlink fx:id="registerLink" text="Create Account" />
+                    </HBox>
+                </VBox>
+                
+                <!-- Error Message -->
+                <VBox fx:id="errorBox" alignment="CENTER" managed="false" visible="false">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label style="-fx-font-size: 20;" text="⚠" />
+                        <Label fx:id="errorLabel" />
+                    </HBox>
+                </VBox>
+                
+                <!-- Database Status -->
+                <VBox alignment="CENTER" spacing="5">
+                    <Label fx:id="dbStatusLabel" text="Checking database connection..." />
+                    <Label styleClass="footer-sub" text="MySQL Database: dilla_university" />
+                </VBox>
+                
+                <!-- Footer -->
+                <VBox alignment="CENTER" spacing="5">
+                    <Label styleClass="footer-main" text="2024 Dilla University - Computer Science Department" />
+                    <Label styleClass="footer-sub" text="Version 2.0 | Secure Database Connection" />
+                </VBox>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>
