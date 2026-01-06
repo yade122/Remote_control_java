@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" 
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="dillauniversity.controller.StudentDashboardController"
+            prefWidth="1200" prefHeight="800"
+            style="-fx-background-color: #f5f5f5;">
+    <stylesheets>
+        <URL value="@student-dashboard-styles.css" />
+    </stylesheets>
+    
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox style="-fx-background-color: #1a237e; -fx-padding: 15 20;">
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <ImageView fitHeight="40" fitWidth="40" preserveRatio="true">
+                    <Image url="@logo.png" />
+                </ImageView>
+                <Label text="DILLA UNIVERSITY STUDENT PORTAL" 
+                       style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;" />
+            </HBox>
+            
+            <Region HBox.hgrow="ALWAYS" />
+            
+            <HBox alignment="CENTER_RIGHT" spacing="20">
+                <Label fx:id="welcomeLabel" text="Welcome, Student" 
+                       style="-fx-text-fill: white; -fx-font-size: 14; -fx-font-weight: bold;" />
+                <Button fx:id="logoutButton" text="LOGOUT" styleClass="green-button" />
+            </HBox>
+        </HBox>
+    </top>
+    
+    <!-- Left Sidebar -->
+    <left>
+        <VBox prefWidth="250" spacing="20" 
+              style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #e0e0e0; -fx-border-width: 0 1 0 0;">
+            
+            <!-- User Profile Card -->
+            <VBox alignment="TOP_CENTER" spacing="15" 
+                  style="-fx-background-color: #f8f9fa; -fx-background-radius: 10; -fx-padding: 20;">
+                <ImageView fx:id="profileImageView" fitHeight="100" fitWidth="100" 
+                           style="-fx-border-radius: 50; -fx-border-color: #1a237e; -fx-border-width: 3;">
+                </ImageView>
+                
+                <VBox alignment="CENTER" spacing="5">
+                    <Label fx:id="fullNameLabel" text="YADETAN TAMIRU GIRMA" 
+                           style="-fx-text-fill: #1a237e; -fx-font-size: 16; -fx-font-weight: bold; -fx-text-alignment: center;" />
+                    <Label fx:id="idLabel" text="ID: RMMS-5210-/23" 
+                           style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                    <Label fx:id="departmentLabel" text="Computer Science" 
+                           style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                    <Label fx:id="yearLabel" text="Year III" 
+                           style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                </VBox>
+            </VBox>
+            
+            <!-- Navigation Menu -->
+            <VBox spacing="10">
+                <Label text="STUDENT NAVIGATION" 
+                       style="-fx-text-fill: #666; -fx-font-size: 12; -fx-font-weight: bold; -fx-padding: 0 0 5 0;" />
+                
+                <VBox spacing="5">
+                    <!-- REGISTRATION BUTTON -->
+                    <Button fx:id="registrationButton" text="📝 Registration" 
+                            onAction="#showRegistrationSection"
+                            styleClass="green-nav-button" />
+                    
+                    <!-- GRADE VIEW BUTTON -->
+                    <Button fx:id="gradeViewButton" text="📊 Grade View" 
+                            onAction="#showGradesSection"
+                            styleClass="green-nav-button" />
+                    
+                    <!-- MY PROFILE BUTTON -->
+                    <Button fx:id="profileButton" text="👤 My Profile" 
+                            onAction="#showProfileSection"
+                            styleClass="green-nav-button" />
+                    
+                    <!-- OTHER OPTIONS -->
+                    <Button text="📅 My Schedule" 
+                            styleClass="green-nav-button" />
+                    
+                    <Button text="✅ Attendance" 
+                            styleClass="green-nav-button" />
+                    
+                    <Button text="💳 Fee Payment" 
+                            styleClass="green-nav-button" />
+                </VBox>
+            </VBox>
+        </VBox>
+    </left>
+    
+    <!-- Main Content Area -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+            <VBox spacing="20" style="-fx-padding: 20;">
+                
+                <!-- Welcome Banner (Default View) -->
+                <VBox fx:id="welcomeSection" style="-fx-background-color: #e8eaf6; -fx-background-radius: 10; -fx-padding: 20;">
+                    <VBox spacing="10">
+                        <Label text="Welcome to Student Portal" 
+                               style="-fx-text-fill: #1a7e1fff; -fx-font-size: 24; -fx-font-weight: bold;" />
+                        <Label text="Use the navigation menu on the left to access different features" 
+                               style="-fx-text-fill: #666; -fx-font-size: 16;" />
+                        
+                        <!-- Quick Stats -->
+                        <GridPane hgap="20" vgap="15" style="-fx-padding: 20 0;">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="25" />
+                                <ColumnConstraints percentWidth="25" />
+                                <ColumnConstraints percentWidth="25" />
+                                <ColumnConstraints percentWidth="25" />
+                            </columnConstraints>
+                            
+                            <!-- Registered Courses -->
+                            <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-alignment: CENTER;">
+                                <Label text="📚" style="-fx-font-size: 24;" />
+                                <Label text="5" style="-fx-text-fill: #1a237e; -fx-font-size: 28; -fx-font-weight: bold;" />
+                                <Label text="Registered Courses" style="-fx-text-fill: #666; -fx-font-size: 12;" />
+                            </VBox>
+                            
+                            <!-- GPA -->
+                            <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-alignment: CENTER;">
+                                <Label text="⭐" style="-fx-font-size: 24;" />
+                                <Label text="3.75" style="-fx-text-fill: #2e7d32; -fx-font-size: 28; -fx-font-weight: bold;" />
+                                <Label text="Current GPA" style="-fx-text-fill: #666; -fx-font-size: 12;" />
+                            </VBox>
+                            
+                            <!-- Attendance -->
+                            <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-alignment: CENTER;">
+                                <Label text="✅" style="-fx-font-size: 24;" />
+                                <Label text="95%" style="-fx-text-fill: #2e7d32; -fx-font-size: 28; -fx-font-weight: bold;" />
+                                <Label text="Attendance" style="-fx-text-fill: #666; -fx-font-size: 12;" />
+                            </VBox>
+                            
+                            <!-- Semester -->
+                            <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-alignment: CENTER;">
+                                <Label text="🎓" style="-fx-font-size: 24;" />
+                                <Label text="Semester 2" style="-fx-text-fill: #1a237e; -fx-font-size: 28; -fx-font-weight: bold;" />
+                                <Label text="Current Semester" style="-fx-text-fill: #666; -fx-font-size: 12;" />
+                            </VBox>
+                        </GridPane>
+                    </VBox>
+                </VBox>
+                
+                <!-- REGISTRATION SECTION (Hidden by default) -->
+                <VBox fx:id="registrationSection" visible="false" managed="false" 
+                      style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                    
+                    <VBox spacing="20">
+                        <!-- Section Header -->
+                        <VBox spacing="5">
+                            <Label text="📝 Course Registration" 
+                                   style="-fx-text-fill: #1a237e; -fx-font-size: 28; -fx-font-weight: bold;" />
+                            <Label text="Register for courses for the upcoming semester" 
+                                   style="-fx-text-fill: #666; -fx-font-size: 16;" />
+                        </VBox>
+                        
+                        <!-- Registration Form -->
+                        <VBox spacing="25" style="-fx-padding: 20 0;">
+                            <!-- Department Selection -->
+                            <VBox spacing="8">
+                                <Label text="Select Department *" 
+                                       style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" />
+                                <ComboBox fx:id="deptComboBox" 
+                                          style="-fx-background-radius: 8; -fx-border-radius: 8; 
+                                                 -fx-border-color: #ddd; -fx-border-width: 1.5;
+                                                 -fx-pref-height: 45; -fx-font-size: 16;" />
+                            </VBox>
+                            
+                            <!-- Academic Year -->
+                            <VBox spacing="8">
+                                <Label text="Academic Year *" 
+                                       style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" />
+                                <ComboBox fx:id="academicYearComboBox" 
+                                          style="-fx-background-radius: 8; -fx-border-radius: 8; 
+                                                 -fx-border-color: #ddd; -fx-border-width: 1.5;
+                                                 -fx-pref-height: 45; -fx-font-size: 16;" />
+                            </VBox>
+                            
+                            <!-- Semester -->
+                            <VBox spacing="8">
+                                <Label text="Semester *" 
+                                       style="-fx-text-fill: #444444ff; -fx-font-size: 16; -fx-font-weight: bold;" />
+                                <ComboBox fx:id="semesterComboBox" 
+                                          style="-fx-background-radius: 8; -fx-border-radius: 8; 
+                                                 -fx-border-color: #ddd; -fx-border-width: 1.5;
+                                                 -fx-pref-height: 45; -fx-font-size: 16;" />
+                            </VBox>
+                            
+                            <!-- Available Courses Table -->
+                            <VBox spacing="10">
+                                <HBox alignment="CENTER_LEFT" spacing="20">
+                                    <Label text="Available Courses"
+                                           style="-fx-text-fill: #444; -fx-font-size: 18; -fx-font-weight: bold;" />
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Label fx:id="totalCreditsLabel" text="Total Credits: 0 / 21"
+                                           style="-fx-text-fill: #2e7d32; -fx-font-size: 16; -fx-font-weight: bold;" />
+                                </HBox>
+
+                                <CheckBox fx:id="selectAllCheckBox" text="Select All Available Courses"
+                                          style="-fx-font-size: 14; -fx-text-fill: #444;" />
+                                
+                                <TableView fx:id="coursesTable" style="-fx-background-color: transparent;">
+                                    <columns>
+                                        <TableColumn text="Select" />
+                                        <TableColumn text="Course Code" />
+                                        <TableColumn text="Course Name" />
+                                        <TableColumn text="Credits" />
+                                        <TableColumn text="Instructor" />
+                                        <TableColumn text="Schedule" />
+                                    </columns>
+                                </TableView>
+                            </VBox>
+                            
+                            <!-- Action Buttons -->
+                            <HBox spacing="20" style="-fx-padding: 20 0 0 0;">
+                                <Button text="CLEAR SELECTION" 
+                                        style="-fx-background-color: #f5f5f5; -fx-text-fill: #666; -fx-font-weight: bold; -fx-font-size: 14; 
+                                               -fx-background-radius: 8; -fx-padding: 10 30; -fx-cursor: hand; 
+                                               -fx-border-color: #ddd; -fx-border-width: 1.5;" />
+                                
+                                <Button fx:id="registerCoursesButton" text="REGISTER SELECTED COURSES" 
+                                        style="-fx-background-color: linear-gradient(to right, #1a237e, #283593); 
+                                               -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16; 
+                                               -fx-background-radius: 8; -fx-padding: 12 40; -fx-cursor: hand;" />
+                            </HBox>
+                            
+                            <!-- Status Message -->
+                            <VBox fx:id="registrationMessageBox" alignment="CENTER" visible="false" managed="false"
+                                  style="-fx-background-color: #e8f5e9; -fx-background-radius: 8; 
+                                         -fx-border-color: #c8e6c9; -fx-border-radius: 8; 
+                                         -fx-border-width: 1.5; -fx-padding: 15;">
+                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                    <Label fx:id="registrationMessageIcon" text="✓" 
+                                           style="-fx-text-fill: #2e7d32; -fx-font-size: 20;" />
+                                    <Label fx:id="registrationMessageLabel" 
+                                           style="-fx-text-fill: #2e7d32; -fx-font-size: 14; -fx-font-weight: bold;" />
+                                </HBox>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </VBox>
+                
+                <!-- GRADE VIEW SECTION (Hidden by default) -->
+                <VBox fx:id="gradesSection" visible="false" managed="false" 
+                      style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                    
+                    <VBox spacing="20">
+                        <!-- Section Header -->
+                        <VBox spacing="5">
+                            <Label text="📊 Grade View" 
+                                   style="-fx-text-fill: #1a237e; -fx-font-size: 28; -fx-font-weight: bold;" />
+                            <Label text="View your academic performance and grades" 
+                                   style="-fx-text-fill: #666; -fx-font-size: 16;" />
+                        </VBox>
+                        
+                        <!-- GPA Display -->
+                        <HBox style="-fx-background-color: #e8eaf6; -fx-background-radius: 10; -fx-padding: 20;">
+                            <VBox spacing="5">
+                                <Label text="Cumulative GPA" 
+                                       style="-fx-text-fill: #1a237e; -fx-font-size: 18; -fx-font-weight: bold;" />
+                                <Label text="Based on all completed courses" 
+                                       style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                            </VBox>
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Label fx:id="profileCGPA" text="3.75"
+                                   style="-fx-text-fill: #2e7d32; -fx-font-size: 48; -fx-font-weight: bold;" />
+                        </HBox>
+                        
+                        <!-- Grades Table -->
+                        <VBox spacing="10">
+                            <Label text="Course Grades" 
+                                   style="-fx-text-fill: #444; -fx-font-size: 18; -fx-font-weight: bold;" />
+                            
+                            <TableView fx:id="gradesTable" style="-fx-background-color: transparent;">
+                                <columns>
+                                    <TableColumn text="Course Code" />
+                                    <TableColumn text="Course Name" />
+                                    <TableColumn text="Credits" />
+                                    <TableColumn text="Grade" />
+                                    <TableColumn text="Grade Points" />
+                                    <TableColumn text="Status" />
+                                </columns>
+                            </TableView>
+                        </VBox>
+                        
+                        <!-- Semester Filter -->
+                        <HBox spacing="20" alignment="CENTER_LEFT">
+                            <Label text="Filter by Semester:" 
+                                   style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" />
+                            <ComboBox fx:id="gradeSemesterFilter" 
+                                      style="-fx-background-radius: 8; -fx-border-radius: 8; 
+                                             -fx-border-color: #ddd; -fx-border-width: 1.5;
+                                             -fx-pref-height: 40; -fx-font-size: 14;" />
+                            <Button text="Generate Report" 
+                                    style="-fx-background-color: #1a237e; -fx-text-fill: white; -fx-font-weight: bold; 
+                                           -fx-background-radius: 8; -fx-padding: 10 30; -fx-cursor: hand;" />
+                        </HBox>
+                    </VBox>
+                </VBox>
+                
+                <!-- PROFILE SECTION (Hidden by default) -->
+                <VBox fx:id="profileSection" visible="false" managed="false" 
+                      style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                    
+                    <VBox spacing="20">
+                        <!-- Section Header -->
+                        <VBox spacing="5">
+                            <Label text="👤 My Profile" 
+                                   style="-fx-text-fill: #1a237e; -fx-font-size: 28; -fx-font-weight: bold;" />
+                            <Label text="View and update your personal information" 
+                                   style="-fx-text-fill: #666; -fx-font-size: 16;" />
+                        </VBox>
+                        
+                        <!-- Profile Information -->
+                        <GridPane hgap="20" vgap="15">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50" />
+                                <ColumnConstraints percentWidth="50" />
+                            </columnConstraints>
+                            
+                            <!-- Personal Info -->
+                            <VBox spacing="15" GridPane.columnIndex="0">
+                                <Label text="Personal Information" 
+                                       style="-fx-text-fill: #1a237e; -fx-font-size: 20; -fx-font-weight: bold;" />
+                                
+                                <VBox spacing="10">
+                                    <HBox spacing="10">
+                                        <Label text="Full Name:" 
+                                               style="-fx-text-fill: #444; -fx-font-size: 14; -fx-font-weight: bold; -fx-min-width: 120;" />
+                                        <Label fx:id="profileFullName" text="YADETAN TAMIRU GIRMA" 
+                                               style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                                    </HBox>
+                                    
+                                    <HBox spacing="10">
+                                        <Label text="Student ID:" 
+                                               style="-fx-text-fill: #444; -fx-font-size: 14; -fx-font-weight: bold; -fx-min-width: 120;" />
+                                        <Label fx:id="profileStudentId" text="RMMS-5210-/23" 
+                                               style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                                    </HBox>
+                                    
+                                    <HBox spacing="10">
+                                        <Label text="Email:" 
+                                               style="-fx-text-fill: #444; -fx-font-size: 14; -fx-font-weight: bold; -fx-min-width: 120;" />
+                                        <Label fx:id="profileEmail" text="student@dilla.edu.et" 
+                                               style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                                    </HBox>
+                                    
+                                    <HBox spacing="10">
+                                        <Label text="Phone:" 
+                                               style="-fx-text-fill: #444; -fx-font-size: 14; -fx-font-weight: bold; -fx-min-width: 120;" />
+                                        <Label fx:id="profilePhone" text="+251 91 234 5678" 
+                                               style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                                    </HBox>
+                                    
+                                    <HBox spacing="10">
+                                        <Label text="Date of Birth:" 
+                                               style="-fx-text-fill: #444; -fx-font-size: 14; -fx-font-weight: bold; -fx-min-width: 120;" />
+                                        <Label fx:id="profileDob" text="15/05/2002" 
+                                               style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                                    </HBox>
+                                </VBox>
+                            </VBox>
+                            
+                            <!-- Academic Info -->
+                            <VBox spacing="15" GridPane.columnIndex="1">
+                                <Label text="Academic Information" 
+                                       style="-fx-text-fill: #1a237e; -fx-font-size: 20; -fx-font-weight: bold;" />
+                                
+                                <VBox spacing="10">
+                                    <HBox spacing="10">
+                                        <Label text="Department:" 
+                                               style="-fx-text-fill: #444; -fx-font-size: 14; -fx-font-weight: bold; -fx-min-width: 120;" />
+                                        <Label fx:id="profileDepartment" text="Computer Science" 
+                                               style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                                    </HBox>
+                                    
+                                    <HBox spacing="10">
+                                        <Label text="Year:" 
+                                               style="-fx-text-fill: #444; -fx-font-size: 14; -fx-font-weight: bold; -fx-min-width: 120;" />
+                                        <Label fx:id="profileYear" text="Year III" 
+                                               style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                                    </HBox>
+                                    
+                                    <HBox spacing="10">
+                                        <Label text="Semester:" 
+                                               style="-fx-text-fill: #444; -fx-font-size: 14; -fx-font-weight: bold; -fx-min-width: 120;" />
+                                        <Label fx:id="profileSemester" text="Semester 2" 
+                                               style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                                    </HBox>
+                                    
+                                    <HBox spacing="10">
+                                        <Label text="Registration Date:" 
+                                               style="-fx-text-fill: #444; -fx-font-size: 14; -fx-font-weight: bold; -fx-min-width: 120;" />
+                                        <Label fx:id="profileRegDate" text="15/09/2022" 
+                                               style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                                    </HBox>
+                                    
+                                    <HBox spacing="10">
+                                        <Label text="CGPA:" 
+                                               style="-fx-text-fill: #444; -fx-font-size: 14; -fx-font-weight: bold; -fx-min-width: 120;" />
+                                        <Label fx:id="profileCGPA_Info" text="3.75"
+                                               style="-fx-text-fill: #2e7d32; -fx-font-size: 14; -fx-font-weight: bold;" />
+                                    </HBox>
+                                </VBox>
+                            </VBox>
+                        </GridPane>
+                        
+                        <!-- Action Buttons -->
+                        <HBox spacing="20" style="-fx-padding: 20 0 0 0;">
+                            <Button text="EDIT PROFILE" 
+                                    onAction="#handleEditProfile"
+                                    style="-fx-background-color: #1a237e; -fx-text-fill: white; -fx-font-weight: bold; 
+                                           -fx-background-radius: 8; -fx-padding: 10 30; -fx-cursor: hand;" />
+                            
+                            <Button text="CHANGE PASSWORD" 
+                                    style="-fx-background-color: #f5f5f5; -fx-text-fill: #666; -fx-font-weight: bold; 
+                                           -fx-background-radius: 8; -fx-padding: 10 30; -fx-cursor: hand; 
+                                           -fx-border-color: #ddd; -fx-border-width: 1.5;" />
+                            
+                            <Button text="DOWNLOAD PROFILE" 
+                                    style="-fx-background-color: #2e7d32; -fx-text-fill: white; -fx-font-weight: bold; 
+                                           -fx-background-radius: 8; -fx-padding: 10 30; -fx-cursor: hand;" />
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+    
+    <!-- Footer -->
+    <bottom>
+        <HBox alignment="CENTER" style="-fx-background-color: #1a237e; -fx-padding: 10;">
+            <Label text="© 2024 Dilla University - Computer Science Department | Student Portal v2.0" 
+                   style="-fx-text-fill: white; -fx-font-size: 12;" />
+        </HBox>
+    </bottom>
+</BorderPane>
