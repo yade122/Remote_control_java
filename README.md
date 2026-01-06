@@ -89,6 +89,7 @@ The Remote Monitoring System provides an efficient and reliable way to monitor s
                              6. Tolosa Zewde………………………….5148/23
  
 
- License
+ Licenses
 
 This project is intended for academic and educational purposes.
+
