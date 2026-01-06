@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="dillauniversity.controller.AdminDashboardController"
+            prefWidth="1200" prefHeight="800"
+            style="-fx-background-color: #f5f5f5;">
+
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox style="-fx-background-color: #00695c; -fx-padding: 15 20;">
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <Label text="DILLA UNIVERSITY - ADMIN PORTAL"
+                       style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;" />
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <HBox alignment="CENTER_RIGHT" spacing="20">
+                <Label text="Administrator" style="-fx-text-fill: white; -fx-font-size: 14;" />
+                <Button fx:id="logoutButton" text="Logout"
+                        style="-fx-background-color: #d32f2f; -fx-text-fill: white;
+                               -fx-font-weight: bold; -fx-background-radius: 5;
+                               -fx-padding: 8 20; -fx-cursor: hand;" />
+            </HBox>
+        </HBox>
+    </top>
+
+    <!-- Left Sidebar -->
+    <left>
+        <VBox prefWidth="250" style="-fx-background-color: #004d40; -fx-padding: 20 0;">
+            <VBox spacing="5">
+                <Button fx:id="dashboardButton" text="Dashboard Overview"
+                        style="-fx-background-color: #004d40; -fx-text-fill: white; -fx-font-weight: bold;
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 10 20; -fx-cursor: hand;"
+                        maxWidth="Infinity" />
+
+                <Button fx:id="usersButton" text="User Management"
+                        style="-fx-background-color: transparent; -fx-text-fill: white;
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 10 20; -fx-cursor: hand;"
+                        maxWidth="Infinity" />
+
+                <Button fx:id="coursesButton" text="Course Management"
+                        style="-fx-background-color: transparent; -fx-text-fill: white;
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 10 20; -fx-cursor: hand;"
+                        maxWidth="Infinity" />
+
+                <Button fx:id="departmentsButton" text="Departments"
+                        style="-fx-background-color: transparent; -fx-text-fill: white;
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 10 20; -fx-cursor: hand;"
+                        maxWidth="Infinity" />
+
+                <Button fx:id="settingsButton" text="System Settings"
+                        style="-fx-background-color: transparent; -fx-text-fill: white;
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 10 20; -fx-cursor: hand;"
+                        maxWidth="Infinity" />
+            </VBox>
+        </VBox>
+    </left>
+
+    <!-- Main Content -->
+    <center>
+        <StackPane style="-fx-padding: 20;">
+            <!-- Dashboard Overview -->
+            <VBox fx:id="dashboardSection" spacing="20">
+                <Label text="System Overview" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #004d40;" />
+
+                <GridPane hgap="20" vgap="20">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                    </columnConstraints>
+
+                    <!-- Total Users -->
+                    <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+                        <Label text="Total Users" style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                        <Label fx:id="totalUsersLabel" text="0" style="-fx-text-fill: #004d40; -fx-font-size: 32; -fx-font-weight: bold;" />
+                    </VBox>
+
+                    <!-- Total Students -->
+                    <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="1">
+                        <Label text="Total Students" style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                        <Label fx:id="totalStudentsLabel" text="0" style="-fx-text-fill: #1976d2; -fx-font-size: 32; -fx-font-weight: bold;" />
+                    </VBox>
+
+                    <!-- Total Teachers -->
+                    <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="2">
+                        <Label text="Total Teachers" style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                        <Label fx:id="totalTeachersLabel" text="0" style="-fx-text-fill: #388e3c; -fx-font-size: 32; -fx-font-weight: bold;" />
+                    </VBox>
+
+                    <!-- Total Courses -->
+                    <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" GridPane.columnIndex="3">
+                        <Label text="Total Courses" style="-fx-text-fill: #666; -fx-font-size: 14;" />
+                        <Label fx:id="totalCoursesLabel" text="0" style="-fx-text-fill: #f57c00; -fx-font-size: 32; -fx-font-weight: bold;" />
+                    </VBox>
+                </GridPane>
+
+                <HBox spacing="20">
+                    <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                        <Label text="System Status" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #444;" />
+                        <Label fx:id="systemStatusLabel" text="Checking..." style="-fx-font-size: 14; -fx-text-fill: #666; -fx-padding: 10 0 0 0;" />
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <!-- Users Section -->
+            <VBox fx:id="usersSection" spacing="20" visible="false" managed="false">
+                <Label text="User Management" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #004d40;" />
+                <HBox spacing="15">
+                    <TextField fx:id="searchUserField" promptText="Search users..." style="-fx-pref-width: 300;" />
+                    <ComboBox fx:id="roleFilterCombo" promptText="Filter by Role" />
+                    <Button text="Search" style="-fx-background-color: #004d40; -fx-text-fill: white;" />
+                </HBox>
+                <TableView fx:id="usersTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn text="ID" prefWidth="50" />
+                        <TableColumn text="Username" prefWidth="150" />
+                        <TableColumn text="Full Name" prefWidth="200" />
+                        <TableColumn text="Role" prefWidth="100" />
+                        <TableColumn text="Email" prefWidth="200" />
+                        <TableColumn text="Status" prefWidth="100" />
+                        <TableColumn text="Actions" prefWidth="150" />
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- Courses Section -->
+            <VBox fx:id="coursesSection" spacing="20" visible="false" managed="false">
+                <Label text="Course Management" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #004d40;" />
+                <HBox spacing="15">
+                    <TextField fx:id="searchCourseField" promptText="Search courses..." style="-fx-pref-width: 300;" />
+                    <Button text="Search" style="-fx-background-color: #004d40; -fx-text-fill: white;" />
+                    <Button text="Add New Course" style="-fx-background-color: #1976d2; -fx-text-fill: white;" />
+                </HBox>
+                <TableView fx:id="coursesTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn text="Code" prefWidth="100" />
+                        <TableColumn text="Course Name" prefWidth="300" />
+                        <TableColumn text="Credits" prefWidth="80" />
+                        <TableColumn text="Department" prefWidth="200" />
+                        <TableColumn text="Actions" prefWidth="150" />
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- Departments Section -->
+            <VBox fx:id="departmentsSection" spacing="20" visible="false" managed="false">
+                <Label text="Department Management" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #004d40;" />
+                <Label text="Department management features coming soon..." />
+            </VBox>
+
+            <!-- Settings Section -->
+            <VBox fx:id="settingsSection" spacing="20" visible="false" managed="false">
+                <Label text="System Settings" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #004d40;" />
+                <Label text="System configuration options coming soon..." />
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>
