@@ -1,0 +1,647 @@
+/* ========================
+   MAIN LAYOUT & BACKGROUND
+   ======================== */
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: #f5f5f5;
+}
+
+/* ========================
+   HEADER STYLES
+   ======================== */
+.header {
+    -fx-background-color: #1a237e;
+    -fx-padding: 15 20;
+}
+
+.header-logo {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+
+.header-title {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 3, 0, 0, 1);
+}
+
+.welcome-label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.logout-button {
+    -fx-background-color: #283593;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 20;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);
+    -fx-transition: all 0.3s;
+}
+
+.logout-button:hover {
+    -fx-background-color: #3949ab;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2);
+}
+
+.logout-button:pressed {
+    -fx-background-color: #1a237e;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 2, 0, 0, 1);
+}
+
+/* ========================
+   SIDEBAR STYLES
+   ======================== */
+.sidebar {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 1 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 0);
+}
+
+/* Profile Card */
+.profile-card {
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-border-color: #e3e8ff;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 2);
+}
+
+.profile-image {
+    -fx-border-radius: 50;
+    -fx-border-color: #1a237e;
+    -fx-border-width: 3;
+    -fx-effect: dropshadow(gaussian, rgba(26,35,126,0.3), 10, 0, 0, 3);
+}
+
+.profile-name {
+    -fx-text-fill: #1a237e;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+}
+
+.profile-id {
+    -fx-text-fill: #666;
+    -fx-font-size: 14px;
+}
+
+.profile-info {
+    -fx-text-fill: #666;
+    -fx-font-size: 14px;
+}
+
+/* Navigation Menu */
+.nav-title {
+    -fx-text-fill: #666;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 5 0;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #444;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12 15;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-transition: all 0.3s;
+}
+
+.nav-button:hover {
+    -fx-background-color: #f0f2ff;
+    -fx-text-fill: #1a237e;
+    -fx-translate-x: 3;
+}
+
+.nav-button:active {
+    -fx-background-color: #1a237e !important;
+    -fx-text-fill: white !important;
+}
+
+.nav-button-active {
+    -fx-background-color: #1a237e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* ========================
+   MAIN CONTENT STYLES
+   ======================== */
+.content-scroll {
+    -fx-background-color: transparent;
+}
+
+.content-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.content-scroll .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.content-scroll .scroll-bar .thumb {
+    -fx-background-color: rgba(26,35,126,0.2);
+    -fx-background-radius: 2em;
+}
+
+.content-scroll .scroll-bar .thumb:hover {
+    -fx-background-color: rgba(26,35,126,0.3);
+}
+
+/* Welcome Section */
+.welcome-section {
+    -fx-background-color: #e8eaf6;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-border-color: #c5cae9;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+}
+
+.welcome-title {
+    -fx-text-fill: #1a237e;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.welcome-subtitle {
+    -fx-text-fill: #666;
+    -fx-font-size: 16px;
+}
+
+/* Stats Cards */
+.stat-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+    -fx-alignment: CENTER;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 2);
+    -fx-transition: all 0.3s;
+}
+
+.stat-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 3);
+    -fx-translate-y: -2;
+}
+
+.stat-icon {
+    -fx-font-size: 24px;
+}
+
+.stat-value {
+    -fx-text-fill: #1a237e;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.stat-value.gpa {
+    -fx-text-fill: #2e7d32;
+}
+
+.stat-label {
+    -fx-text-fill: #666;
+    -fx-font-size: 12px;
+}
+
+/* ========================
+   CONTENT SECTIONS
+   ======================== */
+.content-section {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 30;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+}
+
+.section-title {
+    -fx-text-fill: #1a237e;
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+}
+
+.section-subtitle {
+    -fx-text-fill: #666;
+    -fx-font-size: 16px;
+}
+
+/* ========================
+   FORM ELEMENTS
+   ======================== */
+.form-label {
+    -fx-text-fill: #444;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.form-combo {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1.5;
+    -fx-pref-height: 45;
+    -fx-font-size: 16px;
+    -fx-background-color: white;
+}
+
+.form-combo:focused {
+    -fx-border-color: #3949ab;
+    -fx-border-width: 2;
+}
+
+.form-combo .arrow-button {
+    -fx-background-color: #f5f5f5;
+    -fx-border-radius: 0 8 8 0;
+}
+
+/* ========================
+   TABLE STYLES
+   ======================== */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+}
+
+.table-view .column-header {
+    -fx-background-color: #1a237e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-border-color: #283593;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #1a237e;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #f0f0f0;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #f8f9fa;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #e8eaf6;
+    -fx-text-fill: #1a237e;
+}
+
+.table-view .table-cell {
+    -fx-border-color: #f0f0f0;
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+}
+
+/* ========================
+   BUTTON STYLES
+   ======================== */
+.primary-button {
+    -fx-background-color: linear-gradient(to right, #1a237e, #283593);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-background-radius: 8;
+    -fx-padding: 12 40;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(26,35,126,0.3), 8, 0, 0, 2);
+    -fx-transition: all 0.3s;
+}
+
+.primary-button:hover {
+    -fx-background-color: linear-gradient(to right, #283593, #303f9f);
+    -fx-effect: dropshadow(gaussian, rgba(26,35,126,0.4), 10, 0, 0, 3);
+}
+
+.primary-button:pressed {
+    -fx-background-color: #1a237e;
+    -fx-effect: dropshadow(gaussian, rgba(26,35,126,0.2), 4, 0, 0, 1);
+}
+
+.secondary-button {
+    -fx-background-color: #f5f5f5;
+    -fx-text-fill: #666;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 8;
+    -fx-padding: 10 30;
+    -fx-cursor: hand;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1.5;
+    -fx-transition: all 0.3s;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #444;
+}
+
+.action-button {
+    -fx-background-color: #1a237e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 30;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);
+}
+
+.action-button:hover {
+    -fx-background-color: #283593;
+}
+
+.success-button {
+    -fx-background-color: #2e7d32;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 30;
+    -fx-cursor: hand;
+}
+
+.success-button:hover {
+    -fx-background-color: #388e3c;
+}
+
+/* ========================
+   GREEN BUTTON OVERRIDES
+   ======================== */
+.green-button {
+    -fx-background-color: #2e7d32;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+}
+
+.green-button:hover {
+    -fx-background-color: #388e3c;
+}
+
+.green-button:pressed {
+    -fx-background-color: #1b5e20;
+}
+
+.green-nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2e7d32;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12 15;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.green-nav-button:hover {
+    -fx-background-color: #e8f5e9;
+    -fx-text-fill: #1b5e20;
+}
+
+/* ========================
+   GPA DISPLAY
+   ======================== */
+.gpa-display {
+    -fx-background-color: #e8eaf6;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-border-color: #c5cae9;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+}
+
+.gpa-title {
+    -fx-text-fill: #1a237e;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.gpa-subtitle {
+    -fx-text-fill: #666;
+    -fx-font-size: 14px;
+}
+
+.gpa-value {
+    -fx-text-fill: #2e7d32;
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(46,125,50,0.3), 5, 0, 0, 2);
+}
+
+/* ========================
+   PROFILE INFO STYLES
+   ======================== */
+.info-section-title {
+    -fx-text-fill: #1a237e;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.info-label {
+    -fx-text-fill: #444;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-min-width: 120;
+}
+
+.info-value {
+    -fx-text-fill: #666;
+    -fx-font-size: 14px;
+}
+
+.info-value.highlight {
+    -fx-text-fill: #2e7d32;
+    -fx-font-weight: bold;
+}
+
+/* ========================
+   STATUS MESSAGES
+   ======================== */
+.success-message-box {
+    -fx-background-color: #e8f5e9;
+    -fx-background-radius: 8;
+    -fx-border-color: #c8e6c9;
+    -fx-border-radius: 8;
+    -fx-border-width: 1.5;
+    -fx-padding: 15;
+}
+
+.success-icon {
+    -fx-text-fill: #2e7d32;
+    -fx-font-size: 20px;
+}
+
+.success-message {
+    -fx-text-fill: #2e7d32;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* ========================
+   FILTER CONTROLS
+   ======================== */
+.filter-label {
+    -fx-text-fill: #444;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.filter-combo {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1.5;
+    -fx-pref-height: 40;
+    -fx-font-size: 14px;
+}
+
+/* ========================
+   CHECKBOX STYLES
+   ======================== */
+.check-box {
+    -fx-font-size: 14px;
+    -fx-text-fill: #444;
+}
+
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: #999;
+    -fx-border-width: 2;
+    -fx-border-radius: 3;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #1a237e;
+    -fx-border-color: #1a237e;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+/* ========================
+   FOOTER STYLES
+   ======================== */
+.footer {
+    -fx-background-color: #1a237e;
+    -fx-padding: 10;
+}
+
+.footer-text {
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+}
+
+/* ========================
+   UTILITY CLASSES
+   ======================== */
+.credits-label {
+    -fx-text-fill: #2e7d32;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.region-spacer {
+    -fx-padding: 0;
+}
+
+.content-padding {
+    -fx-padding: 20;
+}
+
+.section-spacing {
+    -fx-spacing: 20;
+}
+
+.grid-spacing {
+    -fx-hgap: 20;
+    -fx-vgap: 15;
+}
+
+.hidden {
+    -fx-opacity: 0;
+    -fx-max-height: 0;
+    -fx-padding: 0;
+    -fx-transition: all 0.3s;
+}
+
+.visible {
+    -fx-opacity: 1;
+    -fx-max-height: 1000;
+    -fx-transition: all 0.3s;
+}
+
+/* ========================
+   ANIMATIONS
+   ======================== */
+@keyframes fadeIn {
+    from { -fx-opacity: 0; }
+    to { -fx-opacity: 1; }
+}
+
+.fade-in {
+    -fx-animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes slideIn {
+    from { -fx-translate-x: -20; -fx-opacity: 0; }
+    to { -fx-translate-x: 0; -fx-opacity: 1; }
+}
+
+.slide-in {
+    -fx-animation: slideIn 0.3s ease-out;
+}
+
+/* ========================
+   RESPONSIVE ADJUSTMENTS
+   ======================== */
+@media (max-width: 1024px) {
+    .sidebar {
+        -fx-pref-width: 200;
+    }
+    
+    .section-title {
+        -fx-font-size: 24px;
+    }
+    
+    .primary-button {
+        -fx-padding: 10 30;
+        -fx-font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .stat-value {
+        -fx-font-size: 24px;
+    }
+    
+    .gpa-value {
+        -fx-font-size: 36px;
+    }
+    
+    .grid-pane {
+        -fx-hgap: 10;
+        -fx-vgap: 10;
+    }
+}
