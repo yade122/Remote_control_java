@@ -92,4 +92,32 @@ The Remote Monitoring System provides an efficient and reliable way to monitor s
  Licenses
 
 This project is intended for academic and educational purposes.
+Description
 
+The Remote Monitoring System is a Java-based application that allows users to monitor and control a remote system through a client–server architecture.
+It is developed as a group project to demonstrate Java networking and collaboration using GitHub.
+
+Features
+
+Client–server communication
+
+Remote monitoring
+
+Command transmission
+
+Real-time responses
+
+Technologies Used
+
+Java
+
+Socket Programming
+
+Multithreading
+
+Git & GitHub
+
+How to Run
+
+Clone the repository and navigate to the project folder.
+Run the server first, then start the client.
