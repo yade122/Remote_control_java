@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" 
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="dillauniversity.controller.DeanDashboardController"
+            prefWidth="1200" prefHeight="800"
+            style="-fx-background-color: #f5f5f5;">
+    
+    <left>
+        <VBox spacing="10" style="-fx-background-color: #1a237e; -fx-padding: 20; -fx-pref-width: 260;">
+            <VBox alignment="CENTER" spacing="10" style="-fx-padding: 0 0 20 0; -fx-border-color: #3949ab; -fx-border-width: 0 0 1 0;">
+                <ImageView fx:id="deanProfileImage" fitWidth="80" fitHeight="80"
+                           style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 5);" />
+                <Label fx:id="deanNameLabel" style="-fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: bold;" />
+                <Label fx:id="departmentLabel" style="-fx-text-fill: #bbdefb; -fx-font-size: 12;" />
+            </VBox>
+
+            <VBox spacing="5">
+                <Button fx:id="dashboardButton" text="Dashboard"
+                        style="-fx-background-color: #3949ab; -fx-text-fill: white; -fx-font-weight: bold;
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 12 15; -fx-font-size: 14;
+                               -fx-cursor: hand; -fx-background-radius: 5;" />
+
+                <Button fx:id="studentsButton" text="Students"
+                        style="-fx-background-color: transparent; -fx-text-fill: white;
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 12 15; -fx-font-size: 14;
+                               -fx-cursor: hand;" />
+
+                <Button fx:id="gradesButton" text="Grades"
+                        style="-fx-background-color: transparent; -fx-text-fill: white;
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 12 15; -fx-font-size: 14;
+                               -fx-cursor: hand;" />
+
+                <Button fx:id="scheduleButton" text="Schedule"
+                        style="-fx-background-color: transparent; -fx-text-fill: white;
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 12 15; -fx-font-size: 14;
+                               -fx-cursor: hand;" />
+
+                <Button fx:id="reportsButton" text="Reports"
+                        style="-fx-background-color: transparent; -fx-text-fill: white;
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 12 15; -fx-font-size: 14;
+                               -fx-cursor: hand;" />
+
+                <Button fx:id="profileButton" text="My Profile"
+                        style="-fx-background-color: transparent; -fx-text-fill: white;
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 12 15; -fx-font-size: 14;
+                               -fx-cursor: hand;" />
+
+                <Region VBox.vgrow="ALWAYS" />
+
+                <Button fx:id="logoutButton" text="Logout"
+                        style="-fx-background-color: #283593; -fx-text-fill: white; -fx-font-weight: bold;
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 12 15; -fx-font-size: 14;
+                               -fx-cursor: hand; -fx-background-radius: 5;" />
+            </VBox>
+        </VBox>
+    </left>
+    
+    <center>
+        <StackPane style="-fx-padding: 20;">
+            <VBox fx:id="dashboardSection" spacing="20" alignment="TOP_LEFT">
+                <Label text="Dean Dashboard" style="-fx-text-fill: #1a237e; -fx-font-size: 28; -fx-font-weight: bold;" />
+                <Label fx:id="welcomeLabel" style="-fx-text-fill: #1a237e; -fx-font-size: 20; -fx-font-weight: bold;" />
+                <Label fx:id="statsLabel" style="-fx-text-fill: #666; -fx-font-size: 14;" />
+
+                <GridPane hgap="15" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                    </columnConstraints>
+
+                    <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="Total Students" style="-fx-text-fill: #444; -fx-font-size: 14;" />
+                        <Label fx:id="totalStudentsLabel" style="-fx-text-fill: #1a237e; -fx-font-size: 22; -fx-font-weight: bold;" />
+                    </VBox>
+
+                    <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label text="Total Teachers" style="-fx-text-fill: #444; -fx-font-size: 14;" />
+                        <Label fx:id="totalTeachersLabel" style="-fx-text-fill: #1a237e; -fx-font-size: 22; -fx-font-weight: bold;" />
+                    </VBox>
+
+                    <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15;" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                        <Label text="Average GPA" style="-fx-text-fill: #444; -fx-font-size: 14;" />
+                        <Label fx:id="avgGPALabel" style="-fx-text-fill: #1a237e; -fx-font-size: 22; -fx-font-weight: bold;" />
+                    </VBox>
+
+                    <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15;" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                        <Label text="Pending Approvals" style="-fx-text-fill: #444; -fx-font-size: 14;" />
+                        <Label fx:id="pendingApprovalsLabel" style="-fx-text-fill: #1a237e; -fx-font-size: 22; -fx-font-weight: bold;" />
+                    </VBox>
+                </GridPane>
+            </VBox>
+
+            <VBox fx:id="studentsSection" spacing="15" alignment="TOP_LEFT" visible="false" managed="false">
+                <Label text="Students" style="-fx-text-fill: #1a237e; -fx-font-size: 24; -fx-font-weight: bold;" />
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <TextField fx:id="searchStudentField" promptText="Search student..." />
+                    <ComboBox fx:id="studentYearFilter" />
+                    <ComboBox fx:id="studentSemesterFilter" />
+                    <Button fx:id="exportStudentsButton" text="Export" />
+                </HBox>
+                <TableView fx:id="studentsTable" />
+            </VBox>
+
+            <VBox fx:id="gradesSection" spacing="15" alignment="TOP_LEFT" visible="false" managed="false">
+                <Label text="Grades" style="-fx-text-fill: #1a237e; -fx-font-size: 24; -fx-font-weight: bold;" />
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <ComboBox fx:id="gradeSemesterFilter" />
+                    <ComboBox fx:id="gradeYearFilter" />
+                    <ComboBox fx:id="gradeCourseFilter" />
+                </HBox>
+                <TableView fx:id="gradesTable" />
+            </VBox>
+
+            <VBox fx:id="scheduleSection" spacing="15" alignment="TOP_LEFT" visible="false" managed="false">
+                <Label text="Schedule" style="-fx-text-fill: #1a237e; -fx-font-size: 24; -fx-font-weight: bold;" />
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Type" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <ComboBox fx:id="scheduleTypeCombo" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    <Label text="Title" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <TextField fx:id="scheduleTitleField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                    <Label text="Date" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                    <DatePicker fx:id="scheduleDatePicker" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                    <Label text="Start" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                    <TextField fx:id="startTimeField" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                    <Label text="End" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                    <TextField fx:id="endTimeField" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                    <Label text="Venue" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                    <TextField fx:id="scheduleVenueField" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+                    <Label text="Course" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+                    <ComboBox fx:id="scheduleCourseCombo" GridPane.rowIndex="6" GridPane.columnIndex="1" />
+                    <Label text="Teacher" GridPane.rowIndex="7" GridPane.columnIndex="0" />
+                    <ComboBox fx:id="scheduleTeacherCombo" GridPane.rowIndex="7" GridPane.columnIndex="1" />
+                    <Label text="Description" GridPane.rowIndex="8" GridPane.columnIndex="0" />
+                    <TextArea fx:id="scheduleDescriptionArea" prefRowCount="3" GridPane.rowIndex="8" GridPane.columnIndex="1" />
+                </GridPane>
+                <TableView fx:id="schedulesTable" />
+            </VBox>
+
+            <VBox fx:id="reportsSection" spacing="15" alignment="TOP_LEFT" visible="false" managed="false">
+                <Label text="Reports" style="-fx-text-fill: #1a237e; -fx-font-size: 24; -fx-font-weight: bold;" />
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <ComboBox fx:id="reportTypeCombo" />
+                    <ComboBox fx:id="reportYearCombo" />
+                    <ComboBox fx:id="reportSemesterCombo" />
+                </HBox>
+                <TextArea fx:id="reportDisplayArea" prefRowCount="4" />
+                <TableView fx:id="reportsTable">
+                    <columns>
+                        <TableColumn fx:id="reportDateCol" text="Date" />
+                        <TableColumn fx:id="reportTypeCol" text="Type" />
+                        <TableColumn fx:id="reportTitleCol" text="Title" />
+                        <TableColumn fx:id="reportTeacherCol" text="Teacher" />
+                        <TableColumn fx:id="reportStatusCol" text="Status" />
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <VBox fx:id="profileSection" spacing="15" alignment="TOP_LEFT" visible="false" managed="false">
+                <Label text="Profile" style="-fx-text-fill: #1a237e; -fx-font-size: 24; -fx-font-weight: bold;" />
+                <HBox spacing="20" alignment="CENTER_LEFT">
+                    <ImageView fx:id="deanProfileImage" fitWidth="120" fitHeight="120" />
+                    <GridPane hgap="10" vgap="10">
+                        <Label text="Full Name" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                        <Label fx:id="profileFullName" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                        <Label text="Dean ID" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                        <Label fx:id="profileDeanId" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                        <Label text="Department" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                        <Label fx:id="profileDepartment" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                        <Label text="Email" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                        <Label fx:id="profileEmail" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                        <Label text="Phone" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                        <Label fx:id="profilePhone" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                        <Label text="Appointment Date" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                        <Label fx:id="profileAppointmentDate" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+                        <Label text="Office Location" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+                        <Label fx:id="profileOfficeLocation" GridPane.rowIndex="6" GridPane.columnIndex="1" />
+                        <Label text="Dean Type" GridPane.rowIndex="7" GridPane.columnIndex="0" />
+                        <Label fx:id="profileDeanType" GridPane.rowIndex="7" GridPane.columnIndex="1" />
+                    </GridPane>
+                </HBox>
+                <Label fx:id="statusLabel" />
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>
