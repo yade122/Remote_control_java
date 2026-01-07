@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="ServerSide.ServerController" spacing="10" styleClass="main-container">
+    
+    <HBox spacing="10" styleClass="header-box">
+        <Label text="Remote Monitoring Server" styleClass="title-label"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label fx:id="serverStatusLabel" text="Stopped" styleClass="status-label"/>
+        <Label fx:id="connectedClientsLabel" text="Connected: 0" styleClass="client-count-label"/>
+        <Button text="Start Server" onAction="#startServer" styleClass="start-button"/>
+        <Button text="Stop Server" onAction="#stopServer" styleClass="stop-button"/>
+    </HBox>
+    
+    <TableView fx:id="clientsTable" VBox.vgrow="ALWAYS" styleClass="clients-table">
+        <columns>
+            <TableColumn fx:id="hostnameColumn" text="Hostname" prefWidth="150"/>
+            <TableColumn fx:id="osColumn" text="Operating System" prefWidth="150"/>
+            <TableColumn fx:id="statusColumn" text="Status" prefWidth="100"/>
+            <TableColumn fx:id="timestampColumn" text="Last Update" prefWidth="100"/>
+        </columns>
+    </TableView>
+    
+    <Label text="Performance Charts" styleClass="section-label"/>
+    <ScrollPane fitToWidth="true" styleClass="charts-scroll">
+        <VBox fx:id="chartsContainer" spacing="10"/>
+    </ScrollPane>
+    
+    <Label text="Server Log" styleClass="section-label"/>
+    <TextArea fx:id="logArea" editable="false" prefRowCount="5" styleClass="log-area"/>
+    
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+</VBox>
