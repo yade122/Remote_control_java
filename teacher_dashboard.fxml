@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" 
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="dillauniversity.controller.TeacherDashboardController"
+            prefWidth="1200" prefHeight="800"
+            style="-fx-background-color: #f5f5f5;">
+    
+    <left>
+        <!-- Sidebar Navigation -->
+        <VBox spacing="10" style="-fx-background-color: #1a237e; -fx-padding: 20; -fx-pref-width: 250;">
+            <!-- Teacher Profile -->
+            <VBox alignment="CENTER" spacing="10" style="-fx-padding: 0 0 20 0; -fx-border-color: #3949ab; -fx-border-width: 0 0 1 0;">
+                <ImageView fx:id="profileImageView" fitWidth="80" fitHeight="80" 
+                           style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 5);" />
+                <Label fx:id="teacherNameLabel" style="-fx-text-fill: white; -fx-font-size: 16; -fx-font-weight: bold;" />
+                <Label fx:id="teacherIdLabel" style="-fx-text-fill: #bbdefb; -fx-font-size: 12;" />
+                <Label fx:id="teacherDeptLabel" style="-fx-text-fill: #bbdefb; -fx-font-size: 12;" />
+            </VBox>
+            
+            <!-- Navigation Buttons -->
+            <VBox spacing="5">
+                <Button fx:id="dashboardButton" text="Dashboard" 
+                        style="-fx-background-color: #3949ab; -fx-text-fill: white; -fx-font-weight: bold; 
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 12 15; -fx-font-size: 14; 
+                               -fx-cursor: hand; -fx-background-radius: 5;" />
+                
+                <Button fx:id="gradeSubmissionButton" text="Submit Grades" 
+                        style="-fx-background-color: transparent; -fx-text-fill: white; 
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 12 15; -fx-font-size: 14; 
+                               -fx-cursor: hand;" />
+                
+                <Button fx:id="reportsButton" text="Reports to Dean" 
+                        style="-fx-background-color: transparent; -fx-text-fill: white; 
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 12 15; -fx-font-size: 14; 
+                               -fx-cursor: hand;" />
+                
+                <Button fx:id="profileButton" text="My Profile" 
+                        style="-fx-background-color: transparent; -fx-text-fill: white; 
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 12 15; -fx-font-size: 14; 
+                               -fx-cursor: hand;" />
+                
+                <Region VBox.vgrow="ALWAYS" />
+                
+                <Button fx:id="logoutButton" text="Logout" 
+                        style="-fx-background-color: #283593; -fx-text-fill: white; -fx-font-weight: bold; 
+                               -fx-alignment: CENTER_LEFT; -fx-padding: 12 15; -fx-font-size: 14; 
+                               -fx-cursor: hand; -fx-background-radius: 5;" />
+            </VBox>
+        </VBox>
+    </left>
+    
+    <center>
+        <StackPane>
+            <!-- Dashboard Section -->
+            <VBox fx:id="dashboardSection" alignment="TOP_CENTER" spacing="20" style="-fx-padding: 20;">
+                <Label text="Teacher Dashboard" 
+                       style="-fx-text-fill: #1a237e; -fx-font-size: 28; -fx-font-weight: bold;" />
+                
+                <!-- Welcome Card -->
+                <HBox spacing="20" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;">
+                    <VBox spacing="10">
+                        <Label fx:id="welcomeLabel" style="-fx-text-fill: #1a237e; -fx-font-size: 24; -fx-font-weight: bold;" />
+                        <Label text="Dilla University - Faculty Portal" 
+                               style="-fx-text-fill: #666; -fx-font-size: 16;" />
+                        <Label fx:id="teacherInfoLabel" 
+                               style="-fx-text-fill: #444; -fx-font-size: 14;" />
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS" />
+                    <VBox alignment="CENTER_RIGHT" spacing="10">
+                        <Label text="Current Semester: 2024 Semester I" 
+                               style="-fx-text-fill: #1a237e; -fx-font-size: 16; -fx-font-weight: bold;" />
+                        <Label fx:id="courseCountLabel" text="Assigned Courses: 0" 
+                               style="-fx-text-fill: #2e7d32; -fx-font-size: 14;" />
+                    </VBox>
+                </HBox>
+                
+                <!-- My Courses Section -->
+                <VBox spacing="10" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;">
+                    <Label text="My Assigned Courses" 
+                           style="-fx-text-fill: #1a237e; -fx-font-size: 20; -fx-font-weight: bold;" />
+                    <ListView fx:id="coursesListView" 
+                              style="-fx-background-color: #fafafa; -fx-border-color: #e0e0e0; -fx-border-radius: 5; -fx-pref-height: 200;" />
+                </VBox>
+                
+                <!-- Quick Actions -->
+                <GridPane hgap="15" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50" />
+                        <ColumnConstraints percentWidth="50" />
+                    </columnConstraints>
+                    
+                    <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;">
+                        <Label text="Grade Submission" 
+                               style="-fx-text-fill: #1a237e; -fx-font-size: 18; -fx-font-weight: bold;" />
+                        <Label text="Submit student grades for your courses" 
+                               style="-fx-text-fill: #666; -fx-font-size: 14; -fx-padding: 10 0;" />
+                        <Button text="Go to Grade Submission" 
+                                onAction="#showGradeSubmissionSection"
+                                style="-fx-background-color: #1a237e; -fx-text-fill: white; -fx-font-weight: bold; 
+                                       -fx-padding: 10 20; -fx-cursor: hand; -fx-background-radius: 5;" />
+                    </VBox>
+                    
+                    <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20;">
+                        <Label text="Reports to Dean" 
+                               style="-fx-text-fill: #1a237e; -fx-font-size: 18; -fx-font-weight: bold;" />
+                        <Label text="Submit reports or issues to Dean" 
+                               style="-fx-text-fill: #666; -fx-font-size: 14; -fx-padding: 10 0;" />
+                        <Button text="Submit Report" 
+                                onAction="#showReportsSection"
+                                style="-fx-background-color: #1a237e; -fx-text-fill: white; -fx-font-weight: bold; 
+                                       -fx-padding: 10 20; -fx-cursor: hand; -fx-background-radius: 5;" />
+                    </VBox>
+                </GridPane>
+            </VBox>
+            
+            <!-- Grade Submission Section -->
+            <VBox fx:id="gradeSection" alignment="TOP_CENTER" spacing="15" 
+                  style="-fx-background-color: white; -fx-padding: 20;" visible="false" managed="false">
+                
+                <Label text="Submit Student Grades" 
+                       style="-fx-text-fill: #1a237e; -fx-font-size: 24; -fx-font-weight: bold;" />
+                
+                <!-- Course Selection and Filters -->
+                <HBox spacing="20" alignment="CENTER_LEFT">
+                    <VBox spacing="5">
+                        <Label text="Select Course" style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" />
+                        <ComboBox fx:id="courseComboBox" 
+                                  style="-fx-pref-width: 300; -fx-pref-height: 40;" />
+                    </VBox>
+                    
+                    <VBox spacing="5">
+                        <Label text="Semester" style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" />
+                        <ComboBox fx:id="gradeSemesterComboBox" 
+                                  style="-fx-pref-width: 200; -fx-pref-height: 40;" />
+                    </VBox>
+                    
+                    <VBox spacing="5">
+                        <Label text="Academic Year" style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" />
+                        <ComboBox fx:id="gradeYearComboBox" 
+                                  style="-fx-pref-width: 200; -fx-pref-height: 40;" />
+                    </VBox>
+                    
+                    <VBox spacing="5">
+                        <Region prefHeight="20" />
+                        <Button text="Load Students" onAction="#loadStudentsForGrading"
+                                style="-fx-background-color: #1a237e; -fx-text-fill: white; -fx-font-weight: bold; 
+                                       -fx-padding: 10 20; -fx-cursor: hand; -fx-background-radius: 5;" />
+                    </VBox>
+                </HBox>
+                
+                <!-- Assessment Quick Buttons -->
+                <HBox spacing="15" alignment="CENTER" style="-fx-padding: 10; -fx-background-color: #f8f9fa; -fx-background-radius: 8;">
+                    <Label text="Quick Assessment:" 
+                           style="-fx-text-fill: #444; -fx-font-size: 14; -fx-font-weight: bold;" />
+                    <Button fx:id="finalExamBtn" text="Final Exam (50%)" 
+                            style="-fx-background-color: #1a237e; -fx-text-fill: white; -fx-font-weight: bold; 
+                                   -fx-padding: 8 15; -fx-cursor: hand; -fx-background-radius: 5;" />
+                    <Button fx:id="midExamBtn" text="Mid Exam (20%)" 
+                            style="-fx-background-color: #3949ab; -fx-text-fill: white; -fx-font-weight: bold; 
+                                   -fx-padding: 8 15; -fx-cursor: hand; -fx-background-radius: 5;" />
+                    <Button fx:id="labBtn" text="Lab Work (20%)" 
+                            style="-fx-background-color: #5c6bc0; -fx-text-fill: white; -fx-font-weight: bold; 
+                                   -fx-padding: 8 15; -fx-cursor: hand; -fx-background-radius: 5;" />
+                    <Button fx:id="quizBtn" text="Quiz (10%)" 
+                            style="-fx-background-color: #7986cb; -fx-text-fill: white; -fx-font-weight: bold; 
+                                   -fx-padding: 8 15; -fx-cursor: hand; -fx-background-radius: 5;" />
+                </HBox>
+                
+                <!-- Students Table for Grading -->
+                <TableView fx:id="gradingTable" style="-fx-pref-height: 400;">
+                    <columns>
+                        <TableColumn fx:id="studentIdCol" text="Student ID" prefWidth="120" />
+                        <TableColumn fx:id="studentNameCol" text="Student Name" prefWidth="200" />
+                        <TableColumn fx:id="departmentCol" text="Department" prefWidth="150" />
+                        <TableColumn fx:id="assessmentCol" text="Assessments" prefWidth="350" />
+                        <TableColumn fx:id="totalCol" text="Total Score" prefWidth="100" />
+                        <TableColumn fx:id="gradeCol" text="Final Grade" prefWidth="100" />
+                    </columns>
+                </TableView>
+                
+                <HBox spacing="20" alignment="CENTER">
+                    <Button text="Save Grades" onAction="#submitGrades"
+                            style="-fx-background-color: #2e7d32; -fx-text-fill: white; -fx-font-weight: bold; 
+                                   -fx-padding: 12 30; -fx-font-size: 16; -fx-cursor: hand; -fx-background-radius: 5;" />
+                    <Button text="Clear All" onAction="#clearGradingForm"
+                            style="-fx-background-color: #f5f5f5; -fx-text-fill: #666; -fx-font-weight: bold; 
+                                   -fx-padding: 12 30; -fx-font-size: 16; -fx-cursor: hand; -fx-background-radius: 5; 
+                                   -fx-border-color: #ddd; -fx-border-width: 1;" />
+                </HBox>
+                
+                <!-- Message Display -->
+                <VBox fx:id="gradeMessageBox" alignment="CENTER" visible="false" managed="false"
+                      style="-fx-background-color: #e8f5e9; -fx-background-radius: 8; 
+                             -fx-border-color: #c8e6c9; -fx-border-radius: 8; 
+                             -fx-border-width: 1.5; -fx-padding: 15; -fx-pref-width: 800;">
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Label fx:id="gradeMessageIcon" text="✓" 
+                               style="-fx-text-fill: #2e7d32; -fx-font-size: 20;" />
+                        <Label fx:id="gradeMessageLabel" 
+                               style="-fx-text-fill: #2e7d32; -fx-font-size: 14; -fx-font-weight: bold;" />
+                    </HBox>
+                </VBox>
+            </VBox>
+            
+            <!-- Reports Section -->
+            <VBox fx:id="reportsSection" alignment="TOP_CENTER" spacing="15" 
+                  style="-fx-background-color: white; -fx-padding: 20;" visible="false" managed="false">
+                
+                <Label text="Submit Report to Dean" 
+                       style="-fx-text-fill: #1a237e; -fx-font-size: 24; -fx-font-weight: bold;" />
+                
+                <VBox spacing="15" style="-fx-pref-width: 800;">
+                    <VBox spacing="5">
+                        <Label text="Report Type" style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" />
+                        <ComboBox fx:id="reportTypeComboBox" 
+                                  style="-fx-pref-width: 300; -fx-pref-height: 40;" />
+                    </VBox>
+                    
+                    <VBox spacing="5">
+                        <Label text="Report Title" style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" />
+                        <TextField fx:id="reportTitleField" 
+                                   style="-fx-pref-width: 800; -fx-pref-height: 40;" 
+                                   promptText="Enter report title..." />
+                    </VBox>
+                    
+                    <VBox spacing="5">
+                        <Label text="Report Description" style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" />
+                        <TextArea fx:id="reportDescriptionArea" 
+                                  style="-fx-pref-width: 800; -fx-pref-height: 200;" 
+                                  wrapText="true" promptText="Enter detailed report description..." />
+                    </VBox>
+                    
+                    <HBox spacing="20" alignment="CENTER">
+                        <Button text="Submit Report" onAction="#submitReport"
+                                style="-fx-background-color: #1a237e; -fx-text-fill: white; -fx-font-weight: bold; 
+                                       -fx-padding: 12 30; -fx-font-size: 16; -fx-cursor: hand; -fx-background-radius: 5;" />
+                        <Button text="Clear Form" onAction="#clearReportForm"
+                                style="-fx-background-color: #f5f5f5; -fx-text-fill: #666; -fx-font-weight: bold; 
+                                       -fx-padding: 12 30; -fx-font-size: 16; -fx-cursor: hand; -fx-background-radius: 5; 
+                                       -fx-border-color: #ddd; -fx-border-width: 1;" />
+                    </HBox>
+                </VBox>
+                
+                <!-- Previous Reports -->
+                <VBox spacing="10" style="-fx-pref-width: 800; -fx-padding: 20 0;">
+                    <Label text="Previous Reports" 
+                           style="-fx-text-fill: #1a237e; -fx-font-size: 20; -fx-font-weight: bold;" />
+                    <TableView fx:id="reportsTable" style="-fx-pref-height: 300;">
+                        <columns>
+                            <TableColumn fx:id="dateCol" text="Date" prefWidth="100" />
+                            <TableColumn fx:id="typeCol" text="Type" prefWidth="120" />
+                            <TableColumn fx:id="titleCol" text="Title" prefWidth="300" />
+                            <TableColumn fx:id="statusCol" text="Status" prefWidth="100" />
+                            <TableColumn fx:id="responseCol" text="Response" prefWidth="180" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </VBox>
+            
+            <!-- Profile Section -->
+            <VBox fx:id="profileSection" alignment="TOP_CENTER" spacing="20" 
+                  style="-fx-background-color: white; -fx-padding: 20;" visible="false" managed="false">
+                
+                <Label text="My Profile" 
+                       style="-fx-text-fill: #1a237e; -fx-font-size: 28; -fx-font-weight: bold;" />
+                
+                <HBox spacing="40" alignment="TOP_LEFT">
+                    <!-- Profile Image and Basic Info -->
+                    <VBox spacing="20" alignment="TOP_CENTER">
+                        <ImageView fx:id="profileImageLarge" fitWidth="150" fitHeight="150" 
+                                   style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 5);" />
+                        <Button text="Change Photo" 
+                                style="-fx-background-color: #1a237e; -fx-text-fill: white; 
+                                       -fx-padding: 8 20; -fx-cursor: hand; -fx-background-radius: 5;" />
+                    </VBox>
+                    
+                    <!-- Profile Details -->
+                    <VBox spacing="15" style="-fx-pref-width: 600;">
+                        <GridPane hgap="20" vgap="15">
+                            <columnConstraints>
+                                <ColumnConstraints prefWidth="200" />
+                                <ColumnConstraints prefWidth="400" />
+                            </columnConstraints>
+                            
+                            <Label text="Full Name:" style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                            <Label fx:id="profileFullName" style="-fx-text-fill: #666; -fx-font-size: 16;" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                            
+                            <Label text="Teacher ID:" style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                            <Label fx:id="profileTeacherId" style="-fx-text-fill: #666; -fx-font-size: 16;" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                            
+                            <Label text="Department:" style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                            <Label fx:id="profileDepartment" style="-fx-text-fill: #666; -fx-font-size: 16;" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                            
+                            <Label text="Qualification:" style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                            <Label fx:id="profileQualification" style="-fx-text-fill: #666; -fx-font-size: 16;" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                            
+                            <Label text="Email:" style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                            <Label fx:id="profileEmail" style="-fx-text-fill: #666; -fx-font-size: 16;" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                            
+                            <Label text="Phone:" style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                            <Label fx:id="profilePhone" style="-fx-text-fill: #666; -fx-font-size: 16;" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+                            
+                            <Label text="Office Number:" style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+                            <Label fx:id="profileOfficeNumber" style="-fx-text-fill: #666; -fx-font-size: 16;" GridPane.rowIndex="6" GridPane.columnIndex="1" />
+                            
+                            <Label text="Office Hours:" style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" GridPane.rowIndex="7" GridPane.columnIndex="0" />
+                            <Label fx:id="profileOfficeHours" style="-fx-text-fill: #666; -fx-font-size: 16;" GridPane.rowIndex="7" GridPane.columnIndex="1" />
+                            
+                            <Label text="Employment Date:" style="-fx-text-fill: #444; -fx-font-size: 16; -fx-font-weight: bold;" GridPane.rowIndex="8" GridPane.columnIndex="0" />
+                            <Label fx:id="profileEmploymentDate" style="-fx-text-fill: #666; -fx-font-size: 16;" GridPane.rowIndex="8" GridPane.columnIndex="1" />
+                        </GridPane>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>
